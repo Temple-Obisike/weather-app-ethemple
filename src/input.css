@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@source "./index.html";
+@source "./app.js";
+
+@theme {
+  --color-ink: hsl(243 96% 9%);
+  --color-card: hsl(243 27% 20%);
+  --color-row: hsl(243 23% 24%);
+  --color-edge: hsl(243 23% 30%);
+  --color-dim: hsl(240 6% 70%);
+  --color-muted: hsl(250 6% 84%);
+  --color-orange: hsl(28 100% 52%);
+  --color-brand: hsl(233 67% 56%);
+  --color-brand-dark: hsl(248 70% 36%);
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "DM Sans", sans-serif;
+}
+
+@layer components {
+  .btn {
+    @apply cursor-pointer rounded-xl border border-edge bg-card px-4 py-3 font-semibold text-white transition-colors hover:bg-row;
+  }
+
+  .panel {
+    @apply rounded-xl border border-edge bg-card;
+  }
+
+  .menu {
+    @apply absolute z-20 max-h-80 overflow-y-auto rounded-xl border border-edge bg-card p-2 shadow-xl;
+  }
+
+  .menu-item {
+    @apply flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-left text-base transition-colors hover:bg-row;
+  }
+
+  .menu-label {
+    @apply px-3 py-2 text-sm font-semibold text-dim;
+  }
+
+  .icon {
+    @apply inline-block shrink-0 fill-none stroke-current stroke-2;
+  }
+
+  #hero[data-loading="true"] .hero-content,
+  #hero[data-loading="false"] .hero-loading {
+    display: none;
+  }
+}
